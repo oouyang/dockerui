@@ -16,7 +16,7 @@ WORKDIR $W_DIR
 RUN \
     echo http://dl-4.alpinelinux.org/alpine/v3.3/main >> /etc/apk/repositories && \
     echo http://dl-4.alpinelinux.org/alpine/v3.3/community>> /etc/apk/repositories && \
-    apk --update add bash git openjdk8 openssh-client && \
+    apk --update add bash git nodejs openjdk8 openssh-client && \
     rm -rf /var/cache/apk/* && \
     wget https://dl.bintray.com/sbt/native-packages/sbt/0.13.11/sbt-0.13.11.tgz -O \
          /usr/lib/sbt-0.13.11.tgz && \
@@ -29,7 +29,7 @@ RUN \
     mkdir -p $W_DIR/frontuic $W_DIR/frontui && \
     cd $W_DIR/frontuic && \
     git clone -b synereo https://github.com/LivelyGig/ProductWebUI.git . && \
-    sbt -verbose -Dconfig.trace=loads stage && \
+    sbt -verbose -J-Xmx2G -Dconfig.trace=loads stage && \
     mv $W_DIR/frontuic/server/target/universal/stage/* $W_DIR/frontui/ && \
     cd $W_DIR/frontui && \
 #    mv bin/server bin/server.bak && \
