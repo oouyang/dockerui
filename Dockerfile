@@ -43,6 +43,6 @@ RUN \
 COPY entrypoint.sh $W_DIR/
 WORKDIR $W_DIR/frontui/
      
-EXPOSE 9876
+EXPOSE 9000
 ENTRYPOINT ["/usr/local/entrypoint.sh"]
 CMD [ "/usr/local/frontui/runsui.sh" ]
