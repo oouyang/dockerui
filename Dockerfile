@@ -10,6 +10,8 @@ ENV RUN_PORT "9000"
 
 ENV W_DIR /usr/local
 WORKDIR $W_DIR
+#ADD ivy2.tar.gz /root/
+#ADD sbt.tar.gz /root/
 
 RUN \
     echo http://dl-4.alpinelinux.org/alpine/v3.3/main >> /etc/apk/repositories && \
@@ -28,18 +30,18 @@ RUN \
     cd $W_DIR/frontuic && \
     git clone -b synereo https://github.com/LivelyGig/ProductWebUI.git . && \
     sbt -verbose -Dconfig.trace=loads stage && \
-    mv $W_DIR/frontuic/server/target/universal/stage/* $W_DIR/frontui && \
+    mv $W_DIR/frontuic/server/target/universal/stage/* $W_DIR/frontui/ && \
     cd $W_DIR/frontui && \
 #    mv bin/server bin/server.bak && \
 #    awk 'NR==6{print "export JAVA_OPT=-Dhttp.port=80"}7' bin/server.bak | tee -a bin/server && \
     \
     chmod 755 bin/server && \
-    rm -f runsui.sh RUNNING_PID ; touch runsui.sh ; chmod 755 runsui.sh && \
-    echo "bin/server -verbose -Dhttp.port=80 -Dplay.crypto.secret=\"s3cr3t\" >&- 2>&- <&- &" |tee -a runsui.sh
+    touch runsui.sh ; chmod 755 runsui.sh && \
+    echo "bin/server -verbose -Dhttp.port=80 -Dplay.crypto.secret=\"s3cr3t\" >&- 2>&- <&- &" |tee -a $W_DIR/frontui/runsui.sh
 
 COPY entrypoint.sh $W_DIR/
-WORKDIR $S_DIR
+WORKDIR $W_DIR/frontui/
      
 EXPOSE 9876
-ENTRYPOINT ["/usr/local/entrypoint.sh"]
-CMD [ "/usr/local/frontui/runsui.sh" ]
+ENTRYPOINT ["$W_DIR/entrypoint.sh"]
+CMD [ "$W_DIR/frontui/runsui.sh" ]
