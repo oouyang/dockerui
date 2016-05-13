@@ -35,13 +35,14 @@ RUN \
 #    mv bin/server bin/server.bak && \
 #    awk 'NR==6{print "export JAVA_OPT=-Dhttp.port=80"}7' bin/server.bak | tee -a bin/server && \
     \
-    chmod 755 bin/server && \
-    touch runsui.sh ; chmod 755 runsui.sh && \
-    echo "bin/server -verbose -Dhttp.port=80 -Dplay.crypto.secret=\"s3cr3t\" >&- 2>&- <&- &" |tee -a $W_DIR/frontui/runsui.sh
-
+    chmod 755 $W_DIR/frontui/bin/server && \
+    touch $W_DIR/frontui/runsui.sh && \
+    echo "bin/server -verbose -Dhttp.port=80 -Dplay.crypto.secret=\"s3cr3t\" >&- 2>&- <&- &" |tee -a $W_DIR/frontui/runsui.sh && \
+    chmod 755 $W_DIR/frontui/runsui.sh 
+    
 COPY entrypoint.sh $W_DIR/
 WORKDIR $W_DIR/frontui/
      
 EXPOSE 9876
-ENTRYPOINT ["$W_DIR/entrypoint.sh"]
-CMD [ "$W_DIR/frontui/runsui.sh" ]
+ENTRYPOINT ["/usr/local/entrypoint.sh"]
+CMD [ "/usr/local/frontui/runsui.sh" ]
