@@ -1,7 +1,7 @@
 
 ## Docker UI for Synereo
 
-This is to setup Synereo UI. These instructions are valid for first time use and once docker images are created and working then use `docker start ...` command for subsequent execution. The process to build takes around 25-40 minutes.
+This process is to setup Synereo UI and this process is valid for first time use. Once docker image is created and working then use `docker start ...` command for subsequent image execution. This building process takes around 25-40 minutes.
 
 ## Prerequisites
  * Minimum 2GB RAM but 4 GB RAM is recommended for compling the source code.
@@ -25,12 +25,12 @@ Run the following commands to build docker image
   Use "synereoui" as image name in subsequent steps where image id is required. You can use image name of your choice and  it must be all lowercase.
   
 ## Running
-There two ways to run the UI 
+There two ways to run UI 
 #### Running docker image - manual process: 
 ```
 3a. docker run -it -p 80:8000 -e RUN_PORT=8000 -e API_HOST=192.168.99.100 -e API_PORT=8888 synereoui /bin/bash
 ```
-At the # prompt, run the commands below
+At the # prompt, run the follwoing commands
     
     3b. cd /usr/local/splicious
     3c. ./run.sh
@@ -38,7 +38,7 @@ At the # prompt, run the commands below
 If want to see the log file then run `tail -f logs/application.log` command at # prompt.  
   
 #### Running docker image - automated process: 
-Below is the command to run the Synereo UI.
+Below is the command to run Synereo UI.
 
 ```
 3a. docker run -it -p 80:8000 -e RUN_PORT=8000 -e API_HOST=192.168.99.100 -e API_PORT=8888 -d synereoui /usr/local/frontui/runsui.sh
