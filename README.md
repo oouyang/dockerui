@@ -1,12 +1,12 @@
 
 ## Docker UI for Synereo
 
-This process is to setup Synereo UI and this process is valid for first time use. Once docker image is created and working then use `docker start ...` command for subsequent image execution. This building process takes around 25-40 minutes.
+This process is to setup Synereo UI docker image and is valid for first time image creation. Once docker image is created and working then use `docker start ...` command for subsequent image executions. This building process takes around 25-40 minutes.
 
 ## Prerequisites
  * Minimum 2GB RAM but 4 GB RAM is recommended for compling the source code.
  * Basic knowledge of Docker. Docker installed (https://www.docker.com/) and running Docker process. Using  [Kitematic](https://docs.docker.com/kitematic/) to start the docker process is very helpful and advisable if using Windows or Mac. On modern linux kernel based system use `wget -qO- https://get.docker.com/ | sh`. Make a note of assigned IP address that shows up when starting Docker and for example, in Windows and Mac, assigned IP address is 192.168.99.100. 
- * Running [Synereo Backend Node](https://github.com/synereo/dockernode). If running the backend using docker image, it likely that the URL for the backend is http://192.168.99.100:8888/agentui/agentui.html?demo=false. This IP address and port number will be used in the step below.
+ * Running [Synereo Backend Node](https://github.com/synereo/dockernode). If running the backend using docker image, it is  likely that the URL for the backend would be http://192.168.99.100:8888/agentui/agentui.html?demo=false. Please verify that backend node is working. This IP address and port number are used in the steps below.
  
 <!---- 
 If want to use existing Docker image to run backend (preferred method) then use the image from Docker hub using `docker pull livelygig/ui` after that jump to 'Running' section below and change the docker image to `livelygig/backend` from `spliciousbkendimage` in docker run command. 
