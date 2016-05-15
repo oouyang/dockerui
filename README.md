@@ -32,7 +32,7 @@ There are two ways to run UI
 ```
 At the # prompt, run the follwoing commands
     
-    3b. cd /usr/local/splicious
+    3b. cd /usr/local/frontui
     3c. ./run.sh
 
 If want to see the log file then run `tail -f logs/application.log` command at # prompt.  
