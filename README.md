@@ -28,7 +28,7 @@ Run the following commands to build docker image
 There are two ways to run UI 
 #### Running docker image - manual process: 
 ```
-3a. docker run -it -p 80:9000 -e RUN_PORT=8000 -e API_HOST=192.168.99.100 -e API_PORT=8888 synereoui /bin/bash
+3a. docker run -it -p 80:9000 -e RUN_PORT=9000 -e API_HOST=192.168.99.100 -e API_PORT=8888 synereoui /bin/bash
 ```
 At the # prompt, run the follwoing commands
     
@@ -41,7 +41,7 @@ If want to see the log file then run `tail -f logs/application.log` command at #
 Below is the command to run Synereo UI.
 
 ```
-3a. docker run -it -p 80:9000 -e RUN_PORT=8000 -e API_HOST=192.168.99.100 -e API_PORT=8888 -d synereoui /usr/local/frontui/runsui.sh
+3a. docker run -it -p 80:9000 -e RUN_PORT=9000 -e API_HOST=192.168.99.100 -e API_PORT=8888 -d synereoui /usr/local/frontui/runsui.sh
 
 ```
 where `API_HOST: Synereo backend node host IP address` and `API_PORT: Synereo backend node host IP Address port`
