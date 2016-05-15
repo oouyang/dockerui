@@ -25,7 +25,7 @@ Run the following commands to build docker image
   Use "synereoui" as image name in subsequent steps where image id is required. You can use image name of your choice and  it must be all lowercase.
   
 ## Running
-There two ways to run UI 
+There are two ways to run UI 
 #### Running docker image - manual process: 
 ```
 3a. docker run -it -p 80:8000 -e RUN_PORT=8000 -e API_HOST=192.168.99.100 -e API_PORT=8888 synereoui /bin/bash
