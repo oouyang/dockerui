@@ -37,7 +37,8 @@ RUN \
     \
     chmod 755 $W_DIR/frontui/bin/server && \
     touch $W_DIR/frontui/runsui.sh && \
-    echo "bin/server -verbose -Dhttp.port=80 -Dplay.crypto.secret=\"s3cr3t\" >&- 2>&- <&- &" |tee -a $W_DIR/frontui/runsui.sh && \
+#    echo "bin/server -verbose -Dhttp.port=80 -Dplay.crypto.secret=\"s3cr3t\" >&- 2>&- <&- &" |tee -a $W_DIR/frontui/runsui.sh && \
+    echo "bin/server -verbose -Dhttp.port=80 -Dplay.crypto.secret=\"s3cr3t\" " |tee -a $W_DIR/frontui/runsui.sh && \
     chmod 755 $W_DIR/frontui/runsui.sh 
     
 COPY entrypoint.sh $W_DIR/
