@@ -41,6 +41,9 @@ RUN \
     chmod 755 $W_DIR/frontui/runsui.sh 
     
 COPY entrypoint.sh $W_DIR/
+RUN \
+    chmod 755 $W_DIR/entrypoint.sh
+    
 WORKDIR $W_DIR/frontui/
      
 EXPOSE 9000
